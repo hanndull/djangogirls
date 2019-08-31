@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.post_list, name='post_list'), 
+    path('post/<int:pk>/', views.post_detail, name='post_detail'),
 ]
 
 # assigning a view called post_list to the root URL, This pattern will tell 
