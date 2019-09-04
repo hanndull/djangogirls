@@ -4,33 +4,53 @@
     <head>
         <title>hanndull's site</title>
         <link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto+Mono&display=swap" rel="stylesheet" type="text/css"> 
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         {% block head %}
         {% endblock %}
     </head>
 
     <body>
-        <div class="page-header">
-            {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" class="top-menu icon"><span class="glyphicon glyphicon-lock" title="Logout"></span></a>
 
-                <a href="{% url 'post_new' %}" class="top-menu icon"><span class="glyphicon glyphicon-plus" title="New Post"></span></a>
+        <nav class="navbar navbar-default">
+            <div class="content container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#codebrainery-toggle-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">johnsonh.com</a>
+                </div>
 
-                <a href="{% url 'post_draft_list' %}" class="top-menu icon"><span class="glyphicon glyphicon-edit" title="Drafts"></span></a>
+                <div class="collapse navbar-collapse" id="codebrainery-toggle-nav">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="success" href="#">Projects</a></li>
+                        <li><a class="warning" href="#">Contact</a></li>
+                        <li class="dropdown primary">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-                <p class="top-menu">Hello, {{ user.username }}!</p>
+                                {% if user.is_authenticated %}
+                                    <li><a class="dropdown-item disabled"><p>Hello, {{ user.username }}!</p></a></li>
+                                    <li><a class="dropdown-item" href="{% url 'post_new' %}">New Post</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'post_draft_list' %}">Review Drafts</a></li>
+                                    <li><a class="dropdown-item" href="/admin">Admin Portal</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                                    
+                                {% else %}   
+                                    <li><a class="dropdown-item" href="{% url 'login' %}">Admin Login</a></li>
 
-                
-            {% else %}
-                
-                <a href="{% url 'login' %}" class="top-menu icon"><span class="glyphicon glyphicon-lock" title="Login"></span></a>
-
-            {% endif %}
-
-            <h1><a href="/">hanndull's site</a></h1>
-        </div>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
         <div class="content container">
             <div class="row">
@@ -40,10 +60,12 @@
                 </div>
             </div>
         </div>
+        
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function(){
+                $(".dropdown-toggle").dropdown();
+            });
+        </script>
 
     </body>
 </html>
-
-<div class="tooltip">Hover over me
-  <span class="tooltiptext">Tooltip text</span>
-</div> 
