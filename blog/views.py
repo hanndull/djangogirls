@@ -6,21 +6,21 @@ from django.contrib.auth.decorators import login_required
 
 
 def show_homepage(request):
-    return render(request, 'blog/home.html')
+    return render(request, 'home.html')
 
 
 def show_contact(request):
-    return render(request, 'blog/contact.html')
+    return render(request, 'contact.html')
 
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'post_list.html', {'posts': posts})
 
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'post_detail.html', {'post': post})
 
 
 @login_required
@@ -31,14 +31,13 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            #post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
         
     else:
         form = PostForm()
     
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'post_edit.html', {'form': form})
 
 
 @login_required
@@ -50,20 +49,19 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            #post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     
     else:
         form = PostForm(instance=post)
     
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'post_edit.html', {'form': form})
 
 
 @login_required
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
-    return render(request, 'blog/post_draft_list.html', {'posts': posts})
+    return render(request, 'post_draft_list.html', {'posts': posts})
 
 
 @login_required
