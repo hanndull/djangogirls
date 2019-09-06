@@ -45,10 +45,32 @@ p, input, label {
     font-size: 20pt;
 }
 
-.post {
-    margin-bottom: 70px;
+.post, .project {
+    margin-bottom: 40px;
 }
 
-.post h2 a, .post h2 a:visited {
+a, a:link, a:active, a:visited {
+    color: #0E4D64;
+}
+
+a:hover {
+    color: #188977;
+}
+
+.extracolumn div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn:link, .btn:link, .btn:active, .btn:visited{
+    background-color: #0e4d64;
+    border-color: #0e4d64;
+    color: #ffffff;
+}
+
+.btn:hover {
+    border-color: #0e4d64;
+    background-color: #c3d3d8;
     color: #000000;
+
 }

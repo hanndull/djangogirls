@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1>Hannah's Projects &#128187</h1>
+    <br>
     {% for project in projects reversed %}
         <div class="project">
             <h2><a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a></h2>
