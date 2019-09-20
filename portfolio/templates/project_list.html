@@ -6,7 +6,7 @@
     {% for project in projects reversed %}
         <div class="project">
             <h2><a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a></h2>
-            <p>{{ project.text|linebreaksbr }}</p>
+            <p>{{ project.text|slice:":201"|linebreaksbr }}...</p>
             <a href="{{ project.address }}" target="_blank">Open Project</a>
             <hr>
         </div>

@@ -1,40 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hannah Johnson &#10024</h1>
-<h3>Full Stack Software Engineer</h3>
-<br>
-<p>
-    Raised in the foothills adjacent Yosemite National Park, Hannah Johnson has a penchant for the great outdoors. Her interest in learning about patterns in nature and human behavior is part of what she believes ultimately lead to her fascination with programming. With a love of logic and creativity, this recent bootcamp grad is excited to continue to level-up her skills as a technologist while making an impact. 
-</p>
+
+<img src="static/holding-leaf.jpg" alt="Hannah, holding some leaves" style="width:100%; margin-top:20px;">
+<div class="topleft">
+    <h1><span class="wht-highlight">Hannah Johnson &#10024</span></h1>
+    <h3><span class="wht-highlight">Full Stack Software Engineer</mark></h3>
+</div>
 
 {% endblock %}
 
 {% block extracolumn %}
 <br>
-<div class="col-md-2 col-sm-12 extracolumn">
-   
-    <div class="card" style="width: 18rem;">
+<div class="col-md-4 col-xs-11 extracolumn">
+    <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn">Go somewhere</a>
+            <h5 class="card-title">Resume</h5>
+            <p class="card-text">You can download a PDF of my technical resume by clicking on the button below.</p>
+            <a href="static/Resume_HJohnson.pdf" class="btn" download>Download Resume</a>
         </div>
     </div>
     <hr>
-    <div class="card" style="width: 18rem;">
+    <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn">Go somewhere</a>
+            <h5 class="card-title">LinkedIn</h5>
+            <p class="card-text">Visit my LinkedIn profile to learn more about me. Send a connection request along with a note!</p>
+            <a href="https://www.linkedin.com/in/hannah-johnson-profile/" class="btn" target="_blank">Go To LinkedIn</a>
         </div>
     </div>
     <hr>
-    <div class="card" style="width: 18rem;">
+    <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn">Go somewhere</a>
+            <h5 class="card-title">Github</h5>
+            <p class="card-text">Check out my work on Github. Let me know if you have any suggestions! Follow my account, if you feel so inspired.</p>
+            <a href="https://github.com/hanndull" class="btn" target="_blank">Go To Github</a>
         </div>
     </div>
 

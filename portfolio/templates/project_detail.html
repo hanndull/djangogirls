@@ -19,6 +19,13 @@
         <h2>{{ project.title }}</h2>
         <p>{{ project.text|linebreaksbr }}</p>
         <a href="{{ project.address }}" target="_blank">Open Project</a> |
-        <a href="{% url 'project_list' %}" target="_blank">Back to All Projects</a>
+        <a href="{% url 'project_list' %}" target="_blank">Projects Page</a>
     </div>
+{% endblock %}
+
+{% block extracolumn %}
+<br>
+<div class="col-md-4 col-xs-11 extracolumn">
+    <a href="{{ project.address }}" target="_blank"><img src="static/{{ project.image }}" alt="Image for: {{ project.title }}" style="width:100%; margin-top:20px;"></a>
+</div>
 {% endblock %}
